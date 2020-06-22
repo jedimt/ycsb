@@ -36,7 +36,7 @@ ENV OPERATIONCOUNT 10000000
 ENV HOST mongo-0.mongo.mongodb.svc.cluster.local
 ENV PORT 27017
 
-# CMD ["/bin/bash"]
+CMD ["/bin/bash", "-ec", "while :; do echo '.'; sleep 60 ; done"]
 
 #CMD ["sh", "-c", "/root/ycsb-0.17.0/bin/ycsb ${TYPE} ${DB} \
 #    -P /root/ycsb-0.17.0/workloads/${WORKLOAD} \
