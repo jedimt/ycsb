@@ -1,0 +1,3 @@
+resources:
+  - ycsb_service.yaml
+  - ycsb_deployment.yaml
