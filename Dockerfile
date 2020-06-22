@@ -9,21 +9,19 @@ FROM openjdk:8
 WORKDIR /root
 RUN apt-get update && apt-get install -y \
     iputils-ping \
-    wget \
-    gzip
+    wget 
 
-#RUN wget -q https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-0.17.0.tar.gz && tar zxf ycsb-0.17.0.tar.gz && rm ycsb-0.17.0.tar.gz
-RUN wget -q https://github.com/jedimt/ycsbtemp/blob/master/ycsb-mongo.tar.gz
+RUN  wget -q -O ycsb-mongo.tar.gz https://github.com/jedimt/ycsb/blob/master/ycsb-mongo.tar.gz?raw=true && tar zxf ycsb-mongo.tar.gz && rm ycsb-mongo.tar.gz
 
 #The following command fails saying that the archive is not valid
 #Look into using gunzip maybe then tar?
 #Also, test just downloading the file locally back to the laptop from github to make sure its still valid after the transfer
-RUN tar -zxvf /root/ycsb-mongo.tar.gz
-RUN rm /root/ycsb-mongo.tar.gz
+#RUN tar -zxvf /root/ycsb-mongo.tar.gz
+#RUN rm /root/ycsb-mongo.tar.gz
 
 #WORKDIR /root/ycsb-0.17.0
 #RUN ls | grep binding | grep -v mongodb-binding | xargs rm -rf
-#WORKDIR /root
+#WORKDIR /rootcd 
 
 RUN apt remove wget -y && rm -rf /var/lib/apt/lists/*
 
