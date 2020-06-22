@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: ycsb
-        image: jedimt/ycsb:latest
+        image: jedimt/ycsb:v3
         ports:
         - containerPort: 22
